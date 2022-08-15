@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+import Signin from './components/Signin/Signin';
+import SignUp from './components/Signup/SignUp';
+import AuthProvider from './contexts/AuthProvider';
+import CloudRequest from './components/CloudRequest/CloudRequest';
+import Navbar from './components/Navbar/Navbar';
+import PrivateRoute from './components/Signin/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <AuthProvider>
+    <Router>
+      <Navbar/>
+      <Routes>
+        <Route path='/' element={<PrivateRoute><CloudRequest/></PrivateRoute>}></Route>
+        <Route path='/signin' element={<Signin/>}></Route>
+        <Route path='/signup' element={<SignUp/>}></Route>
+      </Routes>
+     </Router>
+    </AuthProvider>
     </div>
   );
 }

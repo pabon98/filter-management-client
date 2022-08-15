@@ -1,0 +1,9 @@
+.signin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.s-in{
+    background-color: white;
+}
