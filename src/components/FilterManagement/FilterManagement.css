@@ -1,0 +1,21 @@
+.filtermanage .back{
+ position: relative;
+ left: 700px;
+ bottom:100px;
+}
+.titleField{
+    margin-right: 30px;
+    text-align: left;
+}
+.filterbtn{
+    position: relative;
+    right: 170px;
+    bottom: 90px;
+}
+
+.cancelbtn{
+    position: relative;
+    left: 550px;
+    bottom: 90px;
+
+}

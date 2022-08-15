@@ -17,10 +17,10 @@ const Navbar = () => {
         <li class="nav-item">
           <Link style={{textDecoration:'none', marginRight:'10px', color:'black'}} to='/'>Home</Link>
         </li>
-        {/* <li class="nav-item">
-          <Link style={{textDecoration:'none',marginRight:'10px',color:'black'}} to='/contacts'>Contacts</Link>
-        </li>
         <li class="nav-item">
+          <Link style={{textDecoration:'none',marginRight:'10px',color:'black'}} to='/filtermanagement'>Filter Management</Link>
+        </li>
+        {/* <li class="nav-item">
           <Link style={{textDecoration:'none',marginRight:'10px',color:'black'}} to='/contacts/add'>AddContacts</Link>
         </li> */}
         <li class="nav-item">

@@ -10,6 +10,7 @@ import AuthProvider from './contexts/AuthProvider';
 import CloudRequest from './components/CloudRequest/CloudRequest';
 import Navbar from './components/Navbar/Navbar';
 import PrivateRoute from './components/Signin/PrivateRoute/PrivateRoute';
+import FilterManagement from './components/FilterManagement/FilterManagement';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path='/' element={<PrivateRoute><CloudRequest/></PrivateRoute>}></Route>
+        <Route path='/filtermanagement' element={<PrivateRoute><FilterManagement/></PrivateRoute>}></Route>
         <Route path='/signin' element={<Signin/>}></Route>
         <Route path='/signup' element={<SignUp/>}></Route>
       </Routes>
