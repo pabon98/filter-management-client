@@ -1,7 +1,45 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./FilterForm.css";
 
 const FilterForm = () => {
+    const savedfilterRef = useRef()
+    const requestRef = useRef()
+    const transportationRef = useRef()
+    const citiesRef = useRef()
+    const startDateRef = useRef()
+    const endDateRef = useRef()
+    const startTimeRef = useRef()
+    const endTimeRef = useRef()
+
+    const handleAddFilter = (e)=>{
+        const savedFilter = savedfilterRef.current.value;
+        const requestDelivery = requestRef.current.value;
+        const transportation = transportationRef.current.value;
+        const cities = citiesRef.current.value;
+        const startDate = startDateRef.current.value;
+        const endDate = endDateRef.current.value;
+        const startTime = startTimeRef.current.value;
+        const endTime = endTimeRef.current.value;
+
+        const newFilter = {savedFilter,requestDelivery,transportation,cities,startDate,endDate,startTime,endTime}
+        fetch('http://localhost:5000/filters',{
+           method: 'POST',
+           headers:{
+            'content-type': 'application/json'
+           },
+           body: JSON.stringify(newFilter)
+        })
+        .then(res=> res.json())
+        .then(data=>{
+            if(data.insertedId){
+                // console.log(data)
+                alert('Filter added sucessfully')
+                e.target.reset()
+            }
+        })
+
+        e.preventDefault()
+    }
   return (
     <div>
       <button
@@ -21,7 +59,8 @@ const FilterForm = () => {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-dialog-centered">
+       <form onSubmit={handleAddFilter} >
+       <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
@@ -38,66 +77,66 @@ const FilterForm = () => {
               {/* Form */}
               <div>
                 <label htmlFor="saved-filter"></label>
-                <select id="filters" name="filterlist" form="filterform">
+                <select  ref={savedfilterRef}>
                   <option>Select Saved Filter</option>
-                  <option value="1">Sinemates Pro 2.0</option>
-                  <option value="2">Filter 5</option>
-                  <option value="3">Multi Express</option>
-                  <option value="4">Best One</option>
-                  <option value="5">Multi Express</option>
-                  <option value="6">Best One</option>
+                  <option value="Sinemates Pro 2.0">Sinemates Pro 2.0</option>
+                  <option value="Filter 5">Filter 5</option>
+                  <option value="Multi Express">Multi Express</option>
+                  <option value="Best One">Best One</option>
+                  <option value="Multi Express">Multi Express</option>
+                  <option value="Best One">Best One</option>
                 </select>
               </div>
               <p>OR</p>
               {/* Request type */}
               <div>
                 <label htmlFor="select-request-type"></label>
-                <select name="" id="">
+                <select  ref={requestRef}>
                   <option>Select Request Type</option>
-                  <option value="1">Simple Delivery</option>
-                  <option value="1">Advanced Delivery</option>
+                  <option value="Simple Delivery">Simple Delivery</option>
+                  <option value="Advanced Delivery">Advanced Delivery</option>
                 </select>
               </div>
               {/* transportation type */}
               <div className="my-3">
                 <label htmlFor="select-transportation-type"></label>
-                <select name="" id="">
+                <select name="" id="" ref={transportationRef}>
                   <option>Select Transportation Type</option>
-                  <option value="1">Furniture 2 moving</option>
-                  <option value="2">Furniture 2 moving</option>
-                  <option value="3">Furniture 2 moving</option>
-                  <option value="4">Furniture 2 moving</option>
-                  <option value="5">Furniture 2 moving</option>
-                  <option value="6">Furniture 2 moving</option>
+                  <option value="Furniture 2 moving">Furniture 2 moving</option>
+                  <option value="Furniture 2 moving">Furniture 2 moving</option>
+                  <option value="Furniture 2 moving">Furniture 2 moving</option>
+                  <option value="Furniture 2 moving">Furniture 2 moving</option>
+                  <option value="Furniture 2 moving">Furniture 2 moving</option>
+                  <option value="Furniture 2 moving">Furniture 2 moving</option>
                 </select>
               </div>
               <div>
                 {/* Cities type */}
                 <label htmlFor="select-cities"></label>
-                <select name="" id="">
+                <select name="" id="" ref={citiesRef}>
                   <option>Select Cities</option>
-                  <option value="1">Copenhegen</option>
-                  <option value="2">Dhaka</option>
-                  <option value="3">Delhi</option>
+                  <option value="Copenhegen">Copenhegen</option>
+                  <option value="Dhaka">Dhaka</option>
+                  <option value="Delhi">Delhi</option>
                 </select>
               </div>
               {/* Date */}
               <div className="row my-3">
                 <div className="col-md-6">
                   <label htmlFor="inputDate"></label>
-                  <input type="date" id="date" placeholder="Start Date" />
+                  <input type="date" id="date" placeholder="Start Date" ref={startDateRef} />
                 </div>
                 <div className="col-md-6">
                   <label htmlFor="inputDate"></label>
-                  <input type="date" id="date" placeholder="End Date" />
+                  <input type="date" id="date" placeholder="End Date" ref={endDateRef} />
                 </div>
                 <div className="col-md-6 my-2">
                   <label htmlFor="inputDate"></label>
-                  <input type="date" id="date" placeholder="Start Time" />
+                  <input type="date" id="date" placeholder="Start Time" ref={startTimeRef} />
                 </div>
                 <div className="col-md-6 my-2">
                   <label htmlFor="inputDate"></label>
-                  <input type="date" id="date" placeholder="End Time" />
+                  <input type="date" id="date" placeholder="End Time" ref={endTimeRef} />
                 </div>
               </div>
             </div>
@@ -109,12 +148,13 @@ const FilterForm = () => {
               >
                 Close
               </button>
-              <button type="button" class="btn btn-primary">
+              <button type="submit"  class="btn btn-primary">
                 Submit
               </button>
             </div>
           </div>
         </div>
+       </form>
       </div>
     </div>
   );

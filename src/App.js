@@ -11,6 +11,7 @@ import CloudRequest from './components/CloudRequest/CloudRequest';
 import Navbar from './components/Navbar/Navbar';
 import PrivateRoute from './components/Signin/PrivateRoute/PrivateRoute';
 import FilterManagement from './components/FilterManagement/FilterManagement';
+import UpdateFilter from './components/UpdateFilter/UpdateFilter';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path='/' element={<PrivateRoute><CloudRequest/></PrivateRoute>}></Route>
         <Route path='/filtermanagement' element={<PrivateRoute><FilterManagement/></PrivateRoute>}></Route>
+        <Route path='/filtermanagement/update/:id' element={<UpdateFilter/>}></Route>
         <Route path='/signin' element={<Signin/>}></Route>
         <Route path='/signup' element={<SignUp/>}></Route>
       </Routes>
