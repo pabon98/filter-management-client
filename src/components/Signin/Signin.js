@@ -25,7 +25,7 @@ const Signin = () => {
     navigate("/");
   }
   return (
-    <div className="signin">
+    <div className="signin w-50  m-auto shadow-sm p-3 mb-5 bg-body rounded my-5">
       <div className="s-in">
         <h1>Sign in</h1>
         <p>Please sign in to continue</p>
@@ -37,7 +37,7 @@ const Signin = () => {
           <input
             type="email"
             name="email"
-            className="form-control w-50 p-2 m-auto "
+            className="form-control  p-2 m-auto "
             placeholder="Your Email"
             {...register("email", { required: true })}
           />
@@ -49,7 +49,7 @@ const Signin = () => {
           <input
             type="password"
             name="password"
-            className="form-control w-50 p-2 m-auto my-2 "
+            className="form-control  p-2 m-auto my-2 "
             placeholder="Your Password"
             {...register("password", { required: true })}
           />
@@ -72,6 +72,7 @@ const Signin = () => {
           <p>Haven't any account? </p>
         </span>
         <Link to="/signup">Register</Link>
+        <br /><br />
       </div>
     </div>
   );

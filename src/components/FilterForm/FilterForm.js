@@ -102,11 +102,11 @@ const FilterForm = () => {
                 <label htmlFor="select-transportation-type"></label>
                 <select name="" id="" ref={transportationRef}>
                   <option>Select Transportation Type</option>
-                  <option value="Furniture 2 moving">Furniture 2 moving</option>
-                  <option value="Furniture 2 moving">Furniture 2 moving</option>
-                  <option value="Furniture 2 moving">Furniture 2 moving</option>
-                  <option value="Furniture 2 moving">Furniture 2 moving</option>
-                  <option value="Furniture 2 moving">Furniture 2 moving</option>
+                  <option value="Sundarban Courier">Sundarban Courier</option>
+                  <option value="Es Alam Paribahan">Es Alam Paribahan</option>
+                  <option value="Shamoli Travels">Shamoli Travels</option>
+                  <option value="Paperfly">Paperfly</option>
+                  <option value="Desh Travels">Desh Travels</option>
                   <option value="Furniture 2 moving">Furniture 2 moving</option>
                 </select>
               </div>

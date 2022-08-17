@@ -27,7 +27,7 @@ const Navbar = () => {
          {
            user.email?
            <li></li>:
-           <Link style={{textDecoration:'none',marginRight:'10px',color:'black'}} to='/registration'>SignUp</Link>
+           <Link style={{textDecoration:'none',marginRight:'10px',color:'black'}} to='/signup'>SignUp</Link>
          }
         </li>
       </ul>

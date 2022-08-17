@@ -24,13 +24,13 @@ const SignUp = () => {
       navigate("/");
     }
     return (
-        <div className='signup'>
-            <div className='s-up'>
+        <div className=' w-50  m-auto shadow-sm p-3 mb-5 bg-body rounded my-5'>
+            <div className='sup'>
             <h1>Sign up</h1>
             <p>Please sign up to continue</p>
             <form
           onSubmit={handleSubmit(onSubmit)}
-          className="p-2 ms-auto me-auto w-50 hookform2"
+          className="p-2 ms-auto me-auto "
         >
           <input
             type="email"

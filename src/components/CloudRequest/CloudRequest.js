@@ -12,6 +12,26 @@ const CloudRequest = () => {
       .then((data) => setFilter(data));
   }, []);
 
+  const handleDelete = (id) => {
+    const proceed = window.confirm("Are you sure, you want to delete?");
+    if (proceed) {
+      const url = `http://localhost:5000/filters/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            alert("Deleted filter successfully");
+            const remainingfilters = filters.filter(
+              (filter) => filter._id !== id
+            );
+            setFilter(remainingfilters);
+          }
+        });
+    }
+  };
+
   const handleSearch = (text) => {
    if(text.length>0){
     const searchText = filters.filter((dt) =>
@@ -25,6 +45,7 @@ const CloudRequest = () => {
       .then((data) => setFilter(data));
 
    }
+  
   };
   return (
     <div>
@@ -43,7 +64,7 @@ const CloudRequest = () => {
             {filters.map((filter) => (
               <div
                 key={filter._id}
-                class="card "
+                class="card"
                 style={{
                   width: "18rem",
                   padding: "10px",
@@ -59,6 +80,12 @@ const CloudRequest = () => {
                   <p class="card-text text-start">
                     {filter.transportation}, {filter.cities}
                   </p>
+                  <button
+                    onClick={() => handleDelete(filter._id)}
+                    className="btn btn-danger px-3 "
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             ))}

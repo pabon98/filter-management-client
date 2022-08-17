@@ -32,26 +32,7 @@ const FilterManagement = () => {
     }
   };
 
-  const handleDelete = (id) => {
-    const proceed = window.confirm("Are you sure, you want to delete?");
-    if (proceed) {
-      const url = `http://localhost:5000/favouritefilters/${id}`;
-      fetch(url, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.deletdCount > 0) {
-            alert("Deleted filter successfully");
-            const remainingfilters = filters.filter(
-              (filter) => filter._id !== id
-            );
-            setFilter(remainingfilters);
-          }
-        });
-    }
-  };
-
+  
   const addFavouriteFilter = (e) => {
     const title = titleRef.current.value;
     const request = requestRef.current.value;
@@ -74,7 +55,28 @@ const FilterManagement = () => {
         }
       });
     e.preventDefault();
+
   };
+  const handleDelete = (id) => {
+    const proceed = window.confirm("Are you sure, you want to delete?");
+    if (proceed) {
+      const url = `http://localhost:5000/favouritefilters/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            alert("Deleted filter successfully");
+            const remainingfilters = filters.filter(
+              (filter) => filter._id !== id
+            );
+            setFilter(remainingfilters);
+          }
+        });
+    }
+  };
+
   return (
     <div className="filtermanage">
       <TopHeading>Filter Management </TopHeading>
