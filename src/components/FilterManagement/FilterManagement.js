@@ -9,7 +9,7 @@ const FilterManagement = () => {
   const [search, setSearch] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/favouritefilters")
+    fetch("https://secret-brushlands-81082.herokuapp.com/favouritefilters")
       .then((res) => res.json())
       .then((data) => setFilter(data));
   }, []);
@@ -27,7 +27,7 @@ const FilterManagement = () => {
     const cities = citiesRef.current.value;
 
     const newFavouriteFilter = { title, request, transportation, cities };
-    fetch("http://localhost:5000/favouritefilters", {
+    fetch("https://secret-brushlands-81082.herokuapp.com/favouritefilters", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -47,7 +47,7 @@ const FilterManagement = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      const url = `http://localhost:5000/favouritefilters/${id}`;
+      const url = `https://secret-brushlands-81082.herokuapp.com/favouritefilters/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -70,7 +70,7 @@ const FilterManagement = () => {
       );
       setFilter(searchFilter);
     } else {
-      fetch("http://localhost:5000/favouritefilters")
+      fetch("https://secret-brushlands-81082.herokuapp.com/favouritefilters")
         .then((res) => res.json())
         .then((data) => setFilter(data));
     }

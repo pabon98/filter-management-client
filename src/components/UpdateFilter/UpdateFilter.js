@@ -7,7 +7,7 @@ const UpdateFilter = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    const url = `http://localhost:5000/filtermanagement/${id}`;
+    const url = `https://secret-brushlands-81082.herokuapp.com/filtermanagement/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setFilter(data));
@@ -54,7 +54,7 @@ const UpdateFilter = () => {
     setFilter(updatedCityName);
   };
   const handleUpdateFilter = (e) => {
-    const url = `http://localhost:5000/filtermanagement/${id}`;
+    const url = `https://secret-brushlands-81082.herokuapp.com/filtermanagement/${id}`;
     console.log(url);
     fetch(url, {
       method: "PUT",

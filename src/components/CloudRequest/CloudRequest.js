@@ -7,7 +7,7 @@ const CloudRequest = () => {
   const [filters, setFilter] = useState([]);
   const [search, setSearch] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/filters")
+    fetch("https://secret-brushlands-81082.herokuapp.com/filters")
       .then((res) => res.json())
       .then((data) => setFilter(data));
   }, []);
@@ -15,7 +15,7 @@ const CloudRequest = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?");
     if (proceed) {
-      const url = `http://localhost:5000/filters/${id}`;
+      const url = `https://secret-brushlands-81082.herokuapp.com/filters/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -40,7 +40,7 @@ const CloudRequest = () => {
   setFilter(searchText);
    }
    else{
-    fetch("http://localhost:5000/filters")
+    fetch("https://secret-brushlands-81082.herokuapp.com/filters")
       .then((res) => res.json())
       .then((data) => setFilter(data));
 

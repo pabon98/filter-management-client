@@ -1,7 +1,9 @@
 import React, { useRef } from "react";
+import useAuth from "../../hooks/useAuth";
 import "./FilterForm.css";
 
 const FilterForm = () => {
+    const {user} = useAuth()
     const savedfilterRef = useRef()
     const requestRef = useRef()
     const transportationRef = useRef()
@@ -20,9 +22,10 @@ const FilterForm = () => {
         const endDate = endDateRef.current.value;
         const startTime = startTimeRef.current.value;
         const endTime = endTimeRef.current.value;
+        const RegisteredUser = user.email
 
-        const newFilter = {savedFilter,requestDelivery,transportation,cities,startDate,endDate,startTime,endTime}
-        fetch('http://localhost:5000/filters',{
+        const newFilter = {RegisteredUser, savedFilter,requestDelivery,transportation,cities,startDate,endDate,startTime,endTime}
+        fetch('https://secret-brushlands-81082.herokuapp.com/filters',{
            method: 'POST',
            headers:{
             'content-type': 'application/json'
