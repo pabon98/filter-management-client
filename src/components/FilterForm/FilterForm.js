@@ -39,6 +39,7 @@ const FilterForm = () => {
                 alert('Filter added sucessfully')
                 e.target.reset()
             }
+            window.location.reload()
         })
 
         e.preventDefault()
@@ -87,7 +88,7 @@ const FilterForm = () => {
                   <option value="Multi Express">Multi Express</option>
                   <option value="Best One">Best One</option>
                   <option value="Multi Express">Multi Express</option>
-                  <option value="Best One">Best One</option>
+                  <option value="Filter 6">Filter 6</option>
                 </select>
               </div>
               <p>OR</p>
@@ -135,11 +136,11 @@ const FilterForm = () => {
                 </div>
                 <div className="col-md-5 my-2">
                   <label htmlFor="inputDate">Start Time</label>
-                  <input type="date" id="date" placeholder="Start Time" ref={startTimeRef} />
+                  <input type="time" id="appt" name="appt" min="09:00" max="18:00" required placeholder="Start Time" ref={startTimeRef} />
                 </div>
                 <div className="col-md-6 my-2 ">
                   <label htmlFor="inputDate">End Time</label>
-                  <input type="date" id="date" placeholder="End Time" ref={endTimeRef} />
+                  <input type="time" id="appt" name="appt" min="09:00" max="18:00" placeholder="End Time" ref={endTimeRef} />
                 </div>
               </div>
             </div>

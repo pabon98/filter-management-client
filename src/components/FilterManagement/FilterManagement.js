@@ -40,6 +40,7 @@ const FilterManagement = () => {
           alert("Favourite Filter added Successfully");
           e.target.reset();
         }
+        window.location.reload()
       });
     e.preventDefault();
 
