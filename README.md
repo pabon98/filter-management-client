@@ -1,6 +1,6 @@
 # Filter Management Client
 
-This project was bootstrapped with [Create React App](https://filter-mangement.netlify.app/).
+This project was bootstrapped with [live site](https://filter-mangement.netlify.app/).
 
 ## Available Scripts
 
