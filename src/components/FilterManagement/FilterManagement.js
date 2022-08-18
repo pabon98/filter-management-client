@@ -19,19 +19,6 @@ const FilterManagement = () => {
   const transportationRef = useRef();
   const citiesRef = useRef();
 
-  const handleSearch = (text) => {
-    if (text.length > 0) {
-      const searchFilter = filters.filter((dt) =>
-        dt.title.toLowerCase().includes(text.toLowerCase())
-      );
-      setFilter(searchFilter);
-    } else {
-      fetch("http://localhost:5000/favouritefilters")
-        .then((res) => res.json())
-        .then((data) => setFilter(data));
-    }
-  };
-
   
   const addFavouriteFilter = (e) => {
     const title = titleRef.current.value;
@@ -74,6 +61,18 @@ const FilterManagement = () => {
             setFilter(remainingfilters);
           }
         });
+    }
+  };
+  const handleSearch = (text) => {
+    if (text.length > 0) {
+      const searchFilter = filters.filter((item) =>
+        item.title.toLowerCase().includes(text.toLowerCase())
+      );
+      setFilter(searchFilter);
+    } else {
+      fetch("http://localhost:5000/favouritefilters")
+        .then((res) => res.json())
+        .then((data) => setFilter(data));
     }
   };
 

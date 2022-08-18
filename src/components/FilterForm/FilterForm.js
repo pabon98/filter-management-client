@@ -122,20 +122,20 @@ const FilterForm = () => {
               </div>
               {/* Date */}
               <div className="row my-3">
-                <div className="col-md-6">
-                  <label htmlFor="inputDate"></label>
+                <div className="col-md-5">
+                  <label htmlFor="inputDate">Start Date</label>
                   <input type="date" id="date" placeholder="Start Date" ref={startDateRef} />
                 </div>
                 <div className="col-md-6">
-                  <label htmlFor="inputDate"></label>
+                  <label htmlFor="inputDate">End Date</label>
                   <input type="date" id="date" placeholder="End Date" ref={endDateRef} />
                 </div>
-                <div className="col-md-6 my-2">
-                  <label htmlFor="inputDate"></label>
+                <div className="col-md-5 my-2">
+                  <label htmlFor="inputDate">Start Time</label>
                   <input type="date" id="date" placeholder="Start Time" ref={startTimeRef} />
                 </div>
-                <div className="col-md-6 my-2">
-                  <label htmlFor="inputDate"></label>
+                <div className="col-md-6 my-2 ">
+                  <label htmlFor="inputDate">End Time</label>
                   <input type="date" id="date" placeholder="End Time" ref={endTimeRef} />
                 </div>
               </div>
