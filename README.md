@@ -1,6 +1,6 @@
 # Filter Management Client
 
-This project was bootstrapped with [live site](https://filter-mangement.netlify.app/).
+Site Link: [live site](https://filter-mangement.netlify.app/).
 
 ## Available Scripts
 
